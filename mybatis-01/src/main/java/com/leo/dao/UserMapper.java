@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
+    List<User> getUserLike(String value);
     //查询全部用户
     List<User> getUserList();
     //根据id查询用户

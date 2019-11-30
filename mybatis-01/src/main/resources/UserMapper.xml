@@ -25,4 +25,7 @@
     <delete id="deleteUserById" parameterType="int">
         delete from mybatis.user where id=#{id}
     </delete>
+    <select id="getUserLike" resultType="com.leo.pojo.User">
+        select * from mybatis.user where name like "%"#{value}"%"
+    </select>
 </mapper>

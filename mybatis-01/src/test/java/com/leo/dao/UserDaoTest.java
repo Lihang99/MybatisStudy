@@ -90,4 +90,17 @@ public  class UserDaoTest{
         sqlSession.commit();
         sqlSession.close();
     }
+
+    @Test
+    public void getUserLike(){
+        SqlSession sqlSession=MybatisUtils.getSqlSession();
+        UserMapper mapper=sqlSession.getMapper(UserMapper.class);
+        List<User> userList = mapper.getUserLike("li");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+
+        sqlSession.close();
+
+    }
 }
