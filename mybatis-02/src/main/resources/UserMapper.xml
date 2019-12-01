@@ -4,10 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace绑定一个对应的Dao/Mapper接口-->
 <mapper namespace="com.leo.dao.UserMapper">
+    <resultMap id="UserMap" type="com.leo.pojo.User">
+<!--        <result column="id" property="id"/>-->
+<!--        <result column="name" property="name"/>-->
+        <result column="pwd" property="password"/>
+    </resultMap>
     <select id="getUserList" resultType="User">
         select * from mybatis.user
     </select>
-    <select id="getUserById" parameterType="int" resultType="com.leo.pojo.User">
+    <select id="getUserById" parameterType="int" resultMap="UserMap">
         select * from mybatis.user where id = #{id}
     </select>
 <!--    对象中的属性可以直接取出来-->

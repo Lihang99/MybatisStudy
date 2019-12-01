@@ -10,12 +10,10 @@ import java.util.List;
 public class UserMapperTest {
 
     @Test
-    public void getUserList(){
+    public void Mytest(){
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> userList = mapper.getUserList();
-        for (User user : userList) {
-            System.out.println(user);
-        }
+        User user = mapper.getUserById(1);
+        System.out.println(user);
     }
 }
